@@ -1,0 +1,15 @@
+note over selain
+JS-koodin mukaisesti selain 
+suorittaa HTTP POSTin, jossa
+on mukana uusi data
+end note
+
+selain -> palvelin: HTTP POST { content: "[viestin sisältö]", time jne...} https://fullstack-exampleapp.herokuapp.com/new_note_spa
+palvelin -> selain: 201 created
+
+note over selain 
+JS-koodin mukaisesti uusi
+merkintä lisätään myös selaimen
+listaan, jolloin listaa ei tarvitse
+ladata uudelleen palvelimelta
+end note
