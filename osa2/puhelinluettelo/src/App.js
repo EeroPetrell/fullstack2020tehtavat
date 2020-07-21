@@ -2,13 +2,16 @@ import React, {useState, useEffect} from 'react'
 import AddNew from './components/AddNew'
 import Filter from './components/Filter'
 import Number from './components/Number'
+import Notification from './components/Notification'
 import personService from './services/persons'
+import './index.css'
 
 const App = () => {
     const [persons, setPersons] = useState([])
     const [newName, setNewName] = useState('')
     const [newNumber, setNewNumber] = useState('')
     const [filter, setFilter] = useState('')
+    const [message, setMessage] = useState(null)
 
     const hook = () => {
         personService 
@@ -18,6 +21,13 @@ const App = () => {
                 })
     }
     useEffect(hook, [])
+
+    const showMessage = (message) => {
+        setMessage(message)
+        setTimeout(() => {
+            setMessage(null)
+        }, 5000)
+    }
 
     const add = (event) => {
         console.log('newname', newName)
@@ -33,7 +43,7 @@ const App = () => {
                 const idOfReplacement = persons.find(person => person.name === newName).id
                 personService.update(idOfReplacement, newObject)
                 hook()
-
+                showMessage('Number changed')
             }
         } else {
             const contact = {
@@ -45,6 +55,7 @@ const App = () => {
                     .then(returned => {
                         setPersons(persons.concat(returned))
                     })
+            showMessage('Contact added')
         }
         setNewName('')
         setNewNumber('')
@@ -74,6 +85,7 @@ const App = () => {
             personService.deletePerson(id)
         }
         hook()
+        showMessage('Contact deleted')
     }
 
     const personsToShow = persons.filter(person => person.name.toLowerCase().includes(filter.toLowerCase()))
@@ -81,6 +93,7 @@ const App = () => {
     return (
         <div>
             <h1>Phonebook</h1>
+            <Notification message={message} /> 
             <Filter filter={filter} filterChange={filterChange} /> 
             <AddNew add={add} newName={newName} nameChange={nameChange} newNumber={newNumber} numberChange={numberChange} />
             <h2>Numbers</h2>
