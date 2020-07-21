@@ -7,7 +7,7 @@ const Info = (props) => {
     
 /*    
     Sääjuttu meni ainakin toistaseks vituiks joten olkoon kommentteina
-    nii ja key = 46eed1a3dc15f2e83fadade727acb2a0
+    nii ja key = 
     const api_key = process.env.REACT_APP_API_KEY
     const [weather, setWeather] = useState()
 
