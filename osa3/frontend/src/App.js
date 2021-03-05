@@ -15,7 +15,7 @@ const App = () => {
     const [ search, setSearch ] = useState('')
     const [ message, setMessage ] = useState('')
 
-    const baseUrl  = 'https://safe-shelf-62093.herokuapp.com/api/persons/'
+    const baseUrl  = 'https://mysterious-harbor-75119.herokuapp.com/api/persons/'
     const loadData = () => {
         axios
             .get(baseUrl)
