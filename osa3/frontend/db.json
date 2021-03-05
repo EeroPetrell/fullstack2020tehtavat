@@ -1,0 +1,29 @@
+{
+  "persons": [
+    {
+      "name": "Arto Hellas",
+      "number": "040-123456",
+      "id": 1
+    },
+    {
+      "name": "Ada Lovelace",
+      "number": "39-44-5323523",
+      "id": 2
+    },
+    {
+      "name": "Eero Petrell",
+      "number": "044 0232233",
+      "id": 3
+    },
+    {
+      "name": "Kana Katala",
+      "number": "666",
+      "id": 4
+    },
+    {
+      "name": "Majava Masa",
+      "number": "12345",
+      "id": 5
+    }
+  ]
+}
