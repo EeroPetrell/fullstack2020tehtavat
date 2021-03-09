@@ -61,8 +61,9 @@ const App = () => {
             .delete(baseUrl + id)
             .then(response => {
                 console.log(response)
-                setPersons(persons.filter(person => person.id !== Number(id)))
-                setPersonsToShow(persons.filter(person => person.id !== Number(id)))
+                setPersons(persons.filter(person => String(person.id) !== String(id)))
+                setPersonsToShow(persons.filter(person => String(person.id) !== String(id)))
+                console.log(personsToShow)
             })
         }
     }
